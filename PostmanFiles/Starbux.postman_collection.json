@@ -1,0 +1,502 @@
+{
+	"info": {
+		"_postman_id": "7bc7e360-3533-4bc4-a495-5d198d43542f",
+		"name": "Starbux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User_Login (Customer)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let _token = pm.response.json().token;",
+							"pm.environment.set(\"Token\",_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Email\":\"user1@test.com\",\n    \"Password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/User/Login",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"User",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Login (Admin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let _token = pm.response.json().token;",
+							"pm.environment.set(\"Token\",_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Email\":\"admin@test.com\",\n    \"Password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/User/Login",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"User",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(pm.response.code == 200){",
+							"    pm.environment.set(\"Token\",\"\");",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/User/Logout",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"User",
+						"Logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Test",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/api/User/Test",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"User",
+						"Test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Test Auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/api/User/TestAuth",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"User",
+						"TestAuth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product_GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/api/Product/all",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Product",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product_Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/api/Product/0e7ca561-a147-460c-98dd-c22556019836",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Product",
+						"0e7ca561-a147-460c-98dd-c22556019836"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product_Add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\":\"Product 1\",\n    \"Price\":\"0.01\",\n    \"ProductType\":\"drink\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/Product/",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Product",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product_Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Id\":\"6889ad64-edcb-4bdc-80fd-a06225676106\",\n    \"Name\":\"Product 2\",\n    \"Price\":\"0.5\",\n    \"ProductType\":\"drink\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/Product/6889ad64-edcb-4bdc-80fd-a06225676106",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Product",
+						"6889ad64-edcb-4bdc-80fd-a06225676106"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product_Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/Product/6889ad64-edcb-4bdc-80fd-a06225676106",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Product",
+						"6889ad64-edcb-4bdc-80fd-a06225676106"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report_TotalOrderAmoutByCustomer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/api/Report/TotalOrderAmountByCustomer",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Report",
+						"TotalOrderAmountByCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report_MostUsedToppingsForEachDrink",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/api/Report/MostUsedToppingsForEachDrink",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Report",
+						"MostUsedToppingsForEachDrink"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart_Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Url}}/api/Cart",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart_Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ProductId\":\"18be78cd-49f7-4a5c-bb7c-b86e9e125d51\",\n    \"ParentCartItemId\":\"efb70ded-1a77-4641-940c-6be5d4a3d3b6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/Cart",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart_Remove",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/Cart/0f8869e4-0dcc-49e2-a521-fe94be79e9da",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Cart",
+						"0f8869e4-0dcc-49e2-a521-fe94be79e9da"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart_Pay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Url}}/api/Cart/Pay",
+					"host": [
+						"{{Url}}"
+					],
+					"path": [
+						"api",
+						"Cart",
+						"Pay"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{Token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
